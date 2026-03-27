@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life OS | AI-Powered Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons (CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="ph ph-planet"></i>
+                <span>Life OS</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active" data-view="dashboard">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#planner" class="nav-item" data-view="planner">
+                    <i class="ph ph-calendar-check"></i>
+                    <span>AI Planner</span>
+                </a>
+                <a href="#study" class="nav-item" data-view="study">
+                    <i class="ph ph-book-open"></i>
+                    <span>Study Assistant</span>
+                </a>
+                <a href="#mood" class="nav-item" data-view="mood">
+                    <i class="ph ph-smiley"></i>
+                    <span>Mood Tracker</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn btn-icon btn-ghost">
+                    <i class="ph ph-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div>
+                    <h1 id="page-title">Dashboard</h1>
+                    <p class="ai-tagline">Your AI-powered second brain</p>
+                    <p class="subtitle" id="current-date">Fetching date...</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="btn-new-task">
+                        <i class="ph ph-plus"></i> New Task
+                    </button>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="views-container">
+                
+                <!-- Dashboard View -->
+                <section id="view-dashboard" class="view active">
+                    <div class="dashboard-grid">
+                        
+                        <!-- Daily Tasks -->
+                        <div class="card tasks-card">
+                            <div class="card-header">
+                                <h2>Today's Tasks</h2>
+                                <span class="badge" id="task-count">0/0</span>
+                            </div>
+                            <div class="card-body">
+                                <ul id="task-list" class="item-list">
+                                    <!-- Tasks will be injected here -->
+                                    <li class="empty-state">No tasks for today. Time to relax!</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Active Goals -->
+                        <div class="card goals-card">
+                            <div class="card-header">
+                                <h2>Active Goals</h2>
+                                <button class="btn btn-icon btn-ghost" id="btn-add-goal"><i class="ph ph-plus"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <ul id="goal-list" class="goal-list">
+                                    <!-- Goals injected here -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Habits -->
+                        <div class="card habits-card">
+                            <div class="card-header">
+                                <h2>Daily Habits</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="habit-list" class="habit-grid">
+                                    <!-- Habits injected here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick AI Insights (Simulated) -->
+                        <div class="card insight-card glassmorphism">
+                            <div class="card-header">
+                                <h2><i class="ph ph-sparkle text-accent"></i> AI Insight</h2>
+                            </div>
+                            <div class="card-body">
+                                <p id="daily-insight">"Based on your recent activity, you're most productive in the morning. Try scheduling deep work before 11 AM."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- AI Planner View -->
+                <section id="view-planner" class="view hidden">
+                    <div class="planner-header" style="margin-bottom: var(--spacing-xl); text-align: center;">
+                        <h2 style="font-size: 2rem; margin-bottom: var(--spacing-sm);"><i class="ph ph-magic-wand text-accent"></i> AI Schedule Generator</h2>
+                        <p class="text-secondary">Let our AI organize your tasks and goals into the perfect day.</p>
+                        <button id="btn-generate-plan" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
+                            <i class="ph ph-sparkle"></i> Generate Today's Plan
+                        </button>
+                    </div>
+                    
+                    <div class="card glassmorphism" style="max-width: 800px; margin: 0 auto;">
+                        <div class="card-header">
+                            <h2>Your Suggested Schedule</h2>
+                        </div>
+                        <div class="card-body">
+                            <ul id="planner-timeline" class="item-list">
+                                <li class="empty-state">Click generate to build your AI schedule.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Study Assistant View -->
+                <section id="view-study" class="view hidden">
+                    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--spacing-xl);">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Paste Your Notes</h2>
+                            </div>
+                            <div class="card-body">
+                                <textarea id="study-notes-input" class="glassmorphism" style="width: 100%; height: 200px; padding: var(--spacing-md); border-radius: var(--radius-md); color: var(--text-primary); border: 1px solid var(--bg-elevated); resize: vertical; line-height: 1.6;" placeholder="Paste lecture notes, articles, or text here to generate a summary and flashcard questions..."></textarea>
+                                <button id="btn-process-notes" class="btn btn-primary w-100" style="margin-top: var(--spacing-md);">
+                                    <i class="ph ph-brain"></i> Analyze Notes
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="study-results" class="hidden">
+                            <div class="card glassmorphism" style="margin-bottom: var(--spacing-lg);">
+                                <div class="card-header">
+                                    <h2><i class="ph ph-text-align-left text-accent"></i> AI Summary</h2>
+                                </div>
+                                <div class="card-body" id="study-summary-output" style="line-height: 1.6;">
+                                    <!-- Summary injected here -->
+                                </div>
+                            </div>
+                            
+                            <div class="card glassmorphism">
+                                <div class="card-header">
+                                    <h2><i class="ph ph-question text-accent"></i> Practice Questions</h2>
+                                </div>
+                                <div class="card-body">
+                                    <ul id="study-questions-output" class="item-list">
+                                        <!-- Questions injected here -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mood Tracker View -->
+                <section id="view-mood" class="view hidden">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">How are you feeling today?</h2>
+                        
+                        <div id="mood-selector" style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+                            <button class="mood-btn" data-mood="great" style="font-size: 3rem; transition: transform var(--transition-fast);">😁</button>
+                            <button class="mood-btn" data-mood="good" style="font-size: 3rem; transition: transform var(--transition-fast);">🙂</button>
+                            <button class="mood-btn" data-mood="neutral" style="font-size: 3rem; transition: transform var(--transition-fast);">😐</button>
+                            <button class="mood-btn" data-mood="stressed" style="font-size: 3rem; transition: transform var(--transition-fast);">😫</button>
+                        </div>
+
+                        <div id="mood-insight-card" class="card glassmorphism hidden">
+                            <div class="card-header">
+                                <h2><i class="ph ph-sparkle text-accent"></i> AI Wellbeing Insight</h2>
+                            </div>
+                            <div class="card-body">
+                                <p id="mood-insight-text" style="font-size: 1.1rem; line-height: 1.6;">
+                                    <!-- Insight injected here -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals (Hidden by default) -->
+    <div id="task-modal" class="modal hidden">
+        <div class="modal-content glassmorphism">
+            <div class="modal-header">
+                <h3>Add New Task</h3>
+                <button class="btn btn-icon btn-ghost close-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Title</label>
+                        <input type="text" id="task-title" required placeholder="What needs to be done?">
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/planner.js"></script>
+    <script src="js/study.js"></script>
+    <script src="js/mood.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
