@@ -46,6 +46,22 @@ It focuses on:
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](./screenshorts/Dashboard.png)
+
+### Mood Tracker
+![Mood](./screenshorts/Mood_tracker.png)
+
+### AI Planner
+![Planner](./screenshorts/Planner.png)
+
+### Study Assistant
+![Study](./screenshorts/Study_assistant.png)
+
+---
+
 ## 🚀 How to Run Locally
 
 ```bash
