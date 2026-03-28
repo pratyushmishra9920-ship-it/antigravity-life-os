@@ -1,6 +1,7 @@
 # 🚀 Antigravity Life OS
 
-> Your AI-powered second brain for productivity, focus, and self-growth.
+> Your AI-powered second brain for productivity, focus, and self-growth.  
+> Built with ⚡ Antigravity.
 
 🌐 **Live Demo:**  
 https://pratyushmishra9920-ship-it.github.io/antigravity-life-os/
@@ -9,8 +10,9 @@ https://pratyushmishra9920-ship-it.github.io/antigravity-life-os/
 
 ## 📌 Overview
 
-Antigravity Life OS is a personal productivity dashboard designed to act like a **second brain**.  
-It helps you manage tasks, track habits, generate AI-powered schedules, and improve focus — all in one place.
+Antigravity Life OS is a personal productivity dashboard built using the **Antigravity approach** — focused on simplicity, clarity, and high-performance workflows.
+
+It acts as your **second brain**, helping you manage tasks, track habits, generate AI-powered schedules, and improve daily consistency.
 
 ---
 
@@ -30,6 +32,7 @@ It helps you manage tasks, track habits, generate AI-powered schedules, and impr
 - HTML  
 - CSS  
 - JavaScript  
+- Antigravity Design Philosophy ⚡
 
 ---
 
@@ -40,15 +43,6 @@ git clone https://github.com/pratyushmishra9920-ship-it/antigravity-life-os.git
 cd antigravity-life-os
 open index.html
 ```
-
----
-
-## 📸 Screens
-
-- Dashboard  
-- AI Planner  
-- Study Assistant  
-- Mood Tracker  
 
 ---
 
