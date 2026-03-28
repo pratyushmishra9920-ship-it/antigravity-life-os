@@ -1,6 +1,6 @@
 # 🚀 Antigravity Life OS
 
-> Your AI-powered second brain for productivity, focus, and self-growth.  
+> Your AI-powered second brain for tasks, habits, goals, and daily execution.
 > Built with ⚡ Antigravity.
 
 🌐 **Live Demo:**  
