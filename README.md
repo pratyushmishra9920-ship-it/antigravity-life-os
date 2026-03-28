@@ -14,6 +14,16 @@ Antigravity Life OS is a personal productivity dashboard built using the **Antig
 
 It acts as your **second brain**, helping you manage tasks, track habits, generate AI-powered schedules, and improve daily consistency.
 
+## 🎯 Why Antigravity?
+
+Most productivity tools are cluttered and overwhelming.  
+Antigravity Life OS is built to simplify execution — not just planning.
+
+It focuses on:
+- Clarity over complexity  
+- Action over intention  
+- Consistency over motivation  
+
 ---
 
 ## ✨ Features
